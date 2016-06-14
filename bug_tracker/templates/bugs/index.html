@@ -1,0 +1,26 @@
+{% extends 'bugs/base.html' %}
+{% load staticfiles %}
+
+{% block title %}Log in{% endblock %}
+{% block extrastyle %}
+
+{% endblock %}
+{% block content %}
+    <div class="container">
+	  <form class="form-signin" action="/login/" method="post">{% csrf_token %}
+        {{ state }}
+        <h2 class="form-signin-heading">Please sign in</h2>
+
+        test
+        <input type="text" id="inputUsername" name="username" value="{{ username }}" class="form-control" placeholder="username" required autofocus>
+        <input type="password" id="inputPassword" name="password" value="" class="form-control" placeholder="Password" required>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      </form>
+
+    </div> <!-- /container -->
+{% endblock %}

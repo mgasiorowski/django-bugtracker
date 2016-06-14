@@ -1,0 +1,61 @@
+{% extends 'bugs/base.html' %}
+{% block content %}
+
+    <div class="container">
+    <div align="right">
+        <a href="{% url 'new_bug' %}" class="btn btn-primary btn-sm" role="button">Add New Bug</a>
+    </div>
+    <br>
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">
+      Bug list
+  </div>
+
+  <div class="panel-body">
+  <!-- Table -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>State</th>
+            <th>Level</th>
+	    <th>Create date</th>
+            <th>Owner</th>
+            <th>Assignee</th>
+          </tr>
+        </thead>
+        <tbody>
+
+{% if bug_list %}
+    {% for bug in bug_list %}
+          <tr>
+            <th scope="row">
+    {{ forloop.counter }} {# starting index 1 #}            
+            </th>
+            <td>{{ bug.title }}</td>
+            <td>{{ bug.description }}</td>
+            <td>{{ bug.state }}</td>
+            <td>{{ bug.level }}</td>   
+            <td>{{ bug.created_at|date:'Y-m-d' }}</td>        
+            <td>{{ bug.owner.username }}</td>
+            <td>{{ bug.assignee.username }}</td>
+            <td></td>
+
+          </tr>
+    {% endfor %}    
+{% endif %}
+
+        </tbody>
+      </table>
+  </div>
+
+
+
+</div>
+</div>
+{% endblock %}
+
