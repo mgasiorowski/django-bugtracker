@@ -1,0 +1,41 @@
+{% extends 'bugs/base.html' %}
+{% block content %}
+
+  <div class="container">
+    <br>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Project list
+      </div>
+      <div class="panel-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Owner</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% if project_list %}
+              {% for project in project_list %}
+                <tr>
+                  <th scope="row">
+                    {{ forloop.counter }} {# starting index 1 #}            
+                  </th>
+                  <td><a href="{{ project.get_absolute_url }}">{{ project.name }}</a></td>
+                  <td>{{ project.description }}</td>
+                  <td>{{ project.owner.username }}</td>
+                  <td></td>
+
+                </tr>
+              {% endfor %}    
+            {% endif %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>
+{% endblock %}
+

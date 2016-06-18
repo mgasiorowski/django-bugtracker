@@ -9,10 +9,9 @@
 {% block content %}
   <link rel="stylesheet" href="signup/signup.css">
   <br>
-<div class="container" id="wrap">
-	  <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            
+  <div class="container" id="wrap">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">    
             <form action="/newbug/" method="post" accept-charset="utf-8" class="form" role="form">{% csrf_token %}   <legend>New Bug</legend>
               {% csrf_token %}
                 {% for field in form %}
@@ -45,11 +44,10 @@
                     <br>
                     <button type="submit" class="btn btn-primary">{% trans "Submit" %}</button>
                 </div>
-              </div>  
-             </form>          
+              </div>
+             </form>
           </div>
-      </div>            
+      </div>
     </div>
-</div>
-    {% endblock %}
+{% endblock %}
 

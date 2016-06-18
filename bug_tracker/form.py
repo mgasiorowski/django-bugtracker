@@ -12,7 +12,7 @@ class AddBugForm(ModelForm):
                   'assignee',
                   'state',
                   'level']
-        
+
     def clean(self):
         return super(AddBugForm, self).clean()
 

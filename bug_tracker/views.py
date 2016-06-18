@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate, login
 from django.template import RequestContext
 from django.template.context_processors import csrf
 
-from .models import Bug
+from .models import Bug, Project
 from .form import AddBugForm 
 
 def bug_list(request):
@@ -34,3 +34,11 @@ def new_bug(request):
     }
     context.update(csrf(request))
     return render_to_response('bugs/new_bug.html', context)
+
+def project_list(request):
+    project_list = Project.objects.all()
+    template = loader.get_template('bugs/project_list.html')
+    context = RequestContext(request, {
+        'project_list': project_list,
+     })
+    return HttpResponse(template.render(context))
