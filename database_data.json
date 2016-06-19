@@ -1,0 +1,385 @@
+[
+  {
+    "fields": {
+      "model": "logentry",
+      "app_label": "admin"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "model": "permission",
+      "app_label": "auth"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "model": "group",
+      "app_label": "auth"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "model": "user",
+      "app_label": "auth"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "model": "contenttype",
+      "app_label": "contenttypes"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "model": "session",
+      "app_label": "sessions"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "model": "project",
+      "app_label": "bug_tracker"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 7
+  },
+  {
+    "fields": {
+      "model": "bug",
+      "app_label": "bug_tracker"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 8
+  },
+  {
+    "fields": {
+      "expire_date": "2016-07-03T17:10:31.825Z",
+      "session_data": "ZGJlYzE1NjY2YjVhMGJlYTlkODM1MDhiYzI1NDA5OTFjZmJiMjM0Nzp7Il9hdXRoX3VzZXJfaGFzaCI6IjY5NzFjNWZlNjlkNDQ4Njg0NzIxMzY0ODc5YzcwYzM2MjdiOGU1MWQiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0="
+    },
+    "model": "sessions.session",
+    "pk": "pllf5a2z6l39qhq9r8duu1mmvw9y5cas"
+  },
+  {
+    "fields": {
+      "codename": "add_logentry",
+      "name": "Can add log entry",
+      "content_type": 1
+    },
+    "model": "auth.permission",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "codename": "change_logentry",
+      "name": "Can change log entry",
+      "content_type": 1
+    },
+    "model": "auth.permission",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "codename": "delete_logentry",
+      "name": "Can delete log entry",
+      "content_type": 1
+    },
+    "model": "auth.permission",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "codename": "add_permission",
+      "name": "Can add permission",
+      "content_type": 2
+    },
+    "model": "auth.permission",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "codename": "change_permission",
+      "name": "Can change permission",
+      "content_type": 2
+    },
+    "model": "auth.permission",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "codename": "delete_permission",
+      "name": "Can delete permission",
+      "content_type": 2
+    },
+    "model": "auth.permission",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "codename": "add_group",
+      "name": "Can add group",
+      "content_type": 3
+    },
+    "model": "auth.permission",
+    "pk": 7
+  },
+  {
+    "fields": {
+      "codename": "change_group",
+      "name": "Can change group",
+      "content_type": 3
+    },
+    "model": "auth.permission",
+    "pk": 8
+  },
+  {
+    "fields": {
+      "codename": "delete_group",
+      "name": "Can delete group",
+      "content_type": 3
+    },
+    "model": "auth.permission",
+    "pk": 9
+  },
+  {
+    "fields": {
+      "codename": "add_user",
+      "name": "Can add user",
+      "content_type": 4
+    },
+    "model": "auth.permission",
+    "pk": 10
+  },
+  {
+    "fields": {
+      "codename": "change_user",
+      "name": "Can change user",
+      "content_type": 4
+    },
+    "model": "auth.permission",
+    "pk": 11
+  },
+  {
+    "fields": {
+      "codename": "delete_user",
+      "name": "Can delete user",
+      "content_type": 4
+    },
+    "model": "auth.permission",
+    "pk": 12
+  },
+  {
+    "fields": {
+      "codename": "add_contenttype",
+      "name": "Can add content type",
+      "content_type": 5
+    },
+    "model": "auth.permission",
+    "pk": 13
+  },
+  {
+    "fields": {
+      "codename": "change_contenttype",
+      "name": "Can change content type",
+      "content_type": 5
+    },
+    "model": "auth.permission",
+    "pk": 14
+  },
+  {
+    "fields": {
+      "codename": "delete_contenttype",
+      "name": "Can delete content type",
+      "content_type": 5
+    },
+    "model": "auth.permission",
+    "pk": 15
+  },
+  {
+    "fields": {
+      "codename": "add_session",
+      "name": "Can add session",
+      "content_type": 6
+    },
+    "model": "auth.permission",
+    "pk": 16
+  },
+  {
+    "fields": {
+      "codename": "change_session",
+      "name": "Can change session",
+      "content_type": 6
+    },
+    "model": "auth.permission",
+    "pk": 17
+  },
+  {
+    "fields": {
+      "codename": "delete_session",
+      "name": "Can delete session",
+      "content_type": 6
+    },
+    "model": "auth.permission",
+    "pk": 18
+  },
+  {
+    "fields": {
+      "codename": "add_project",
+      "name": "Can add project",
+      "content_type": 7
+    },
+    "model": "auth.permission",
+    "pk": 19
+  },
+  {
+    "fields": {
+      "codename": "change_project",
+      "name": "Can change project",
+      "content_type": 7
+    },
+    "model": "auth.permission",
+    "pk": 20
+  },
+  {
+    "fields": {
+      "codename": "delete_project",
+      "name": "Can delete project",
+      "content_type": 7
+    },
+    "model": "auth.permission",
+    "pk": 21
+  },
+  {
+    "fields": {
+      "codename": "add_bug",
+      "name": "Can add bug",
+      "content_type": 8
+    },
+    "model": "auth.permission",
+    "pk": 22
+  },
+  {
+    "fields": {
+      "codename": "change_bug",
+      "name": "Can change bug",
+      "content_type": 8
+    },
+    "model": "auth.permission",
+    "pk": 23
+  },
+  {
+    "fields": {
+      "codename": "delete_bug",
+      "name": "Can delete bug",
+      "content_type": 8
+    },
+    "model": "auth.permission",
+    "pk": 24
+  },
+  {
+    "fields": {
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "is_active": true,
+      "is_superuser": true,
+      "is_staff": true,
+      "last_login": "2016-06-19T17:10:31.823Z",
+      "groups": [],
+      "user_permissions": [],
+      "password": "pbkdf2_sha256$20000$ZOaQH2p3A4gX$vI9xmjeczCjjr5uUHZBIxOyBiwoNXPc4fVudNTH+WOE=",
+      "email": "",
+      "date_joined": "2016-06-19T17:10:13.582Z"
+    },
+    "model": "auth.user",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "username": "testowy_uzytkownik",
+      "first_name": "",
+      "last_name": "",
+      "is_active": true,
+      "is_superuser": false,
+      "is_staff": false,
+      "last_login": null,
+      "groups": [],
+      "user_permissions": [],
+      "password": "pbkdf2_sha256$20000$Gr8juUic3hQa$xL0l5MJ73r14A6jVZhPG37/YX2RNr1RVta4TRYAAJ7I=",
+      "email": "",
+      "date_joined": "2016-06-19T17:10:51.844Z"
+    },
+    "model": "auth.user",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "owner": 2,
+      "shortname": "testowy_projekt",
+      "name": "Testowy projekt",
+      "description": "asfasfasf"
+    },
+    "model": "bug_tracker.project",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "owner": 2,
+      "shortname": "testowy_projekt2",
+      "name": "Testowy projekt 2",
+      "description": "safasf"
+    },
+    "model": "bug_tracker.project",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "action_flag": 1,
+      "action_time": "2016-06-19T17:10:51.865Z",
+      "object_repr": "testowy_uzytkownik",
+      "object_id": "2",
+      "change_message": "",
+      "user": 1,
+      "content_type": 4
+    },
+    "model": "admin.logentry",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "action_flag": 1,
+      "action_time": "2016-06-19T17:10:54.535Z",
+      "object_repr": "testowy_projekt",
+      "object_id": "1",
+      "change_message": "",
+      "user": 1,
+      "content_type": 7
+    },
+    "model": "admin.logentry",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "action_flag": 1,
+      "action_time": "2016-06-19T17:11:06.537Z",
+      "object_repr": "testowy_projekt2",
+      "object_id": "2",
+      "change_message": "",
+      "user": 1,
+      "content_type": 7
+    },
+    "model": "admin.logentry",
+    "pk": 3
+  }
+]

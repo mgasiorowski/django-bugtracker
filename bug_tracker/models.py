@@ -31,16 +31,11 @@ class Project(models.Model):
     def get_absolute_url(self):
         return '/project/%s/' % self.shortname
 
-    def tasks_url(self):
-        return '/%s/tasks/' % self.shortname
-
     def settings_url(self):
-        """Url to the settings for this project."""
         return '/%s/settings/' % self.shortname
 
 
 class Bug(models.Model):
-    number = models.IntegerField()
     title = models.CharField(max_length=200)
     project = models.ForeignKey(Project)
     description = models.TextField()
@@ -80,9 +75,7 @@ class Bug(models.Model):
         super(Bug, self).delete()
 
     def get_absolute_url(self):
-        """Get url to details for this task."""
-        return '/%s/taskdetails/%s/' % (self.project.shortname, self.number)
+        return '/%s/taskdetails/%s/' % (self.project.shortname, self.id)
 
     def edit_url(self):
-        """Get url to editing for this task."""
-        return '/%s/edittask/%s/' % (self.project.shortname, self.number)
+        return '/%s/edittask/%s/' % (self.project.shortname, self.id)

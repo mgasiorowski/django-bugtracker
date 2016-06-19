@@ -11,7 +11,7 @@ from .form import AddBugForm
 
 
 def bug_list(request, project_key):
-    myproject = Project.objects.get(pk=project_key)
+    myproject = Project.objects.get(shortname=project_key)
     bug_list = Bug.objects.filter(project=myproject).all()
     template = loader.get_template('bugs/bug_list.html')
     context = RequestContext(request, {
@@ -28,7 +28,7 @@ def new_bug(request):
             bug = form.save(commit=False)
             bug.owner = request.user
             bug.save()
-            return redirect('bugs')
+            return redirect('/')
 
     context = {
         'form': form

@@ -33,9 +33,9 @@
               {% for bug in bug_list %}
                 <tr>
                   <th scope="row">
-                    {{ forloop.counter }} {# starting index 1 #}            
+                {{ forloop.counter }} {# starting index 1 #}            
                   </th>
-                  <td>{{ bug.title }}</td>
+                  <td><a href="{{ bug.get_absolute_url }}">{{ bug.title }}</td>
                   <td>{{ bug.description }}</td>
                   <td>{{ bug.state }}</td>
                   <td>{{ bug.level }}</td>   
