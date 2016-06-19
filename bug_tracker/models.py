@@ -29,7 +29,7 @@ class Project(models.Model):
         return self.shortname
 
     def get_absolute_url(self):
-        return '/%s/' % self.shortname
+        return '/project/%s/' % self.shortname
 
     def tasks_url(self):
         return '/%s/tasks/' % self.shortname
@@ -40,9 +40,9 @@ class Project(models.Model):
 
 
 class Bug(models.Model):
-    #umber = models.IntegerField()
+    number = models.IntegerField()
     title = models.CharField(max_length=200)
-    #project = models.ForeignKey(Project)
+    project = models.ForeignKey(Project)
     description = models.TextField()
     owner = models.ForeignKey(
         User,

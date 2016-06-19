@@ -9,15 +9,16 @@ from django.template.context_processors import csrf
 from .models import Bug, Project
 from .form import AddBugForm 
 
-def bug_list(request):
-    if request.user and request.user.is_authenticated():
-        bug_list = Bug.objects.all()
-        template = loader.get_template('bugs/bug_list.html')
-        context = RequestContext(request, {
-            'bug_list': bug_list,
+
+def bug_list(request, project_key):
+    myproject = Project.objects.get(pk=project_key)
+    bug_list = Bug.objects.filter(project=myproject).all()
+    template = loader.get_template('bugs/bug_list.html')
+    context = RequestContext(request, {
+        'bug_list': bug_list,
      })
-        return HttpResponse(template.render(context))
-    return redirect('/login/') 
+    return HttpResponse(template.render(context))
+
 
 def new_bug(request):
     form = AddBugForm()
@@ -34,6 +35,7 @@ def new_bug(request):
     }
     context.update(csrf(request))
     return render_to_response('bugs/new_bug.html', context)
+
 
 def project_list(request):
     project_list = Project.objects.all()

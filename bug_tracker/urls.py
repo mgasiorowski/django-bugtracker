@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^logout/$', 'django.contrib.auth.views.logout'),
     url(r'^bugs/$', views.bug_list, name='bugs'),
     url(r'^newbug/$', views.new_bug, name='new_bug'),
+    url(r'^project/(?P<project_key>.*?)/$', views.bug_list, name='project'),
 ]
