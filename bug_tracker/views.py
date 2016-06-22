@@ -1,63 +1,42 @@
-from django.http import HttpResponse
-from django.template import RequestContext, loader
-from django.contrib.auth.models import User
-from django.shortcuts import render_to_response, redirect
 from django.contrib.auth import authenticate, login
-from django.template import RequestContext
 from django.template.context_processors import csrf
 
+from django.views.generic import ListView, DetailView
+
 from .models import Bug, Project
-from .form import AddBugForm 
+
+from django.views.generic.edit import CreateView, UpdateView
 
 
-def bug_list(request, project_key):
-    myproject = Project.objects.get(shortname=project_key)
-    bug_list = Bug.objects.filter(project=myproject).all()
-    template = loader.get_template('bugs/bug_list.html')
-    context = RequestContext(request, {
-        'bug_list': bug_list,
-     })
-    return HttpResponse(template.render(context))
+class BugList(ListView):
+    template_name = 'bugs/bug_list.html'
+    def get_queryset(self):
+        project = Project.objects.get(shortname=self.kwargs['project_key'])
+        return Bug.objects.filter(project=project)
 
 
-def new_bug(request):
-    form = AddBugForm()
-    if request.POST:
-        form = AddBugForm(request.POST)
-        if form.is_valid():
-            bug = form.save(commit=False)
-            bug.owner = request.user
-            bug.save()
-            return redirect('/')
-
-    context = {
-        'form': form
-    }
-    context.update(csrf(request))
-    return render_to_response('bugs/new_bug.html', context)
+class BugCreate(CreateView):
+    model = Bug
+    template_name = 'bugs/new_bug.html'
+    fields = ['title', 'project', 'description', 'assignee', 'state', 'level']
+    def form_valid(self, form):
+        form.instance.owner = self.request.user
+        return super(BugCreate, self).form_valid(form)
 
 
-def project_list(request):
-    project_list = Project.objects.all()
-    template = loader.get_template('bugs/project_list.html')
-    context = RequestContext(request, {
-        'project_list': project_list,
-     })
-    return HttpResponse(template.render(context))
+class BugEdit(UpdateView):
+    model = Bug
+    template_name = 'bugs/new_bug.html'
+    fields = ['title', 'project', 'description', 'assignee', 'state', 'level']
 
 
-def bugs_view(request, id):
-    bugs_view = Bug.objects.filter(id=id)
-    template = loader.get_template('bugs/bugs_view.html')
-    context = RequestContext(request, {
-        'bugs_view': bugs_view,
-        })
-    return HttpResponse(template.render(context))
+class ProjectList(ListView):
+    template_name = 'bugs/project_list.html'
+    model = Project
 
-def bugs_edit(request):
-    bugs_edit = Bug.objects.all()
-    template = loader.get_template('bugs/bugs_edit.html')
-    context = RequestContext(request, {
-        'bugs_edit': bugs_edit,
-        })
-    return HttpResponse(template.render(context))
+
+class BugsView(DetailView):
+    template_name = 'bugs/bugs_view.html'
+
+    def get_queryset(self):
+        return Bug.objects.filter(pk=self.kwargs['pk'])
