@@ -4,6 +4,9 @@
   {% if user != None and user.is_authenticated %}
     <div align="right">
       <a href="{% url 'bugs_edit' pk=object.id %}" class="btn btn-primary btn-sm" role="button">Edit</a>
+    {% if object.state != 'close' %}
+      <a href="{% url 'close_bug' pk=object.id %}" class="btn btn-primary btn-sm" role="button">Close</a>
+    {% endif %}
     </div>
   {% endif %}
   <br>

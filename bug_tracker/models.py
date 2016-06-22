@@ -11,7 +11,9 @@ class Project(models.Model):
     name = models.CharField(max_length=100, unique=True)
     description = models.TextField()
     owner = models.ForeignKey(User)
-
+    assigned_programmers = models.ManyToManyField(User, related_name='assigned_programmers', blank=True)
+    assigned_testers = models.ManyToManyField(User, related_name='assigned_testers', blank=True)
+    
     def validate_name_shortname(self):
         if self.name == '':
             raise Exception('name can not be an empty string.')
