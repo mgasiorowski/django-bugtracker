@@ -1,0 +1,38 @@
+{% extends 'bugs/base.html' %}
+{% block content %}
+
+<div class="container">
+  {% for bug in bugs_view %}
+  {% if user != None and user.is_authenticated %}
+    <div align="right">
+      <a href="{% url 'bugs_edit' %}?next={{ bug.id }}" class="btn btn-primary btn-sm" role="button">Edit</a>
+    </div>
+  {% endif %}
+  {% endfor %}
+  <br>
+  {% if bugs_view %}
+    {% for bug in bugs_view %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Bug: {{ bug.title}}
+      </div>
+      <div class="panel-body">
+        <div>Created: {{ bug.created_at }}</div>
+        <div>Reporter: {{ bug.owner_id }}</div>
+        <div>Assignee: 
+          {% if bug.assigne_id == null %}
+            None
+          {% else %}
+            {{ bug.assigne_id }}
+          {% endif %}
+        <div>
+        <div>Status: {{ bug.state }}</div>
+        <div>Priority: {{ bug.level }}</div>
+        <div>Description: {{ bug.description }}</div>
+      </div>
+    </div>
+    {% endfor %}    
+  {% endif %}
+</div>
+{% endblock %}
+

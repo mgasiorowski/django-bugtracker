@@ -32,7 +32,7 @@ class Project(models.Model):
         return '/project/%s/' % self.shortname
 
     def settings_url(self):
-        return '/%s/settings/' % self.shortname
+        return '/project/%s/settings/' % self.shortname
 
 
 class Bug(models.Model):
@@ -75,7 +75,7 @@ class Bug(models.Model):
         super(Bug, self).delete()
 
     def get_absolute_url(self):
-        return '/%s/taskdetails/%s/' % (self.project.shortname, self.id)
+        return '/taskdetails/%s/' % (self.id)
 
     def edit_url(self):
-        return '/%s/edittask/%s/' % (self.project.shortname, self.id)
+        return '/edittask/%s/' % (self.id)

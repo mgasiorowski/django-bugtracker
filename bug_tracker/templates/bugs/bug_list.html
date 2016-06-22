@@ -9,45 +9,46 @@
     {% endif %}
     <br>
 
-  <div class="panel panel-default">
-    <div class="panel-heading">
+    <div class="panel panel-default">
+      <div class="panel-heading">
         Bug list
-    </div>
+      </div>
 
-    <div class="panel-body">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Title</th>
-              <th>Description</th>
-              <th>State</th>
-              <th>Level</th>
-              <th>Create date</th>
-              <th>Owner</th>
-              <th>Assignee</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% if bug_list %}
-              {% for bug in bug_list %}
-                <tr>
-                  <th scope="row">
-                {{ forloop.counter }} {# starting index 1 #}            
-                  </th>
-                  <td><a href="{{ bug.get_absolute_url }}">{{ bug.title }}</td>
-                  <td>{{ bug.description }}</td>
-                  <td>{{ bug.state }}</td>
-                  <td>{{ bug.level }}</td>   
-                  <td>{{ bug.created_at|date:'Y-m-d' }}</td>        
-                  <td>{{ bug.owner.username }}</td>
-                  <td>{{ bug.assignee.username }}</td>
-                  <td></td>
-                </tr>
-              {% endfor %}    
-            {% endif %}
-          </tbody>
-        </table>
+      <div class="panel-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>State</th>
+                <th>Level</th>
+                <th>Create date</th>
+                <th>Owner</th>
+                <th>Assignee</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% if bug_list %}
+                {% for bug in bug_list %}
+                  <tr>
+                    <th scope="row">
+                  {{ forloop.counter }} {# starting index 1 #}            
+                    </th>
+                    <td><a href="{{ bug.get_absolute_url }}">{{ bug.title }}</td>
+                    <td>{{ bug.description }}</td>
+                    <td>{{ bug.state }}</td>
+                    <td>{{ bug.level }}</td>   
+                    <td>{{ bug.created_at|date:'Y-m-d' }}</td>        
+                    <td>{{ bug.owner.username }}</td>
+                    <td>{{ bug.assignee.username }}</td>
+                    <td></td>
+                  </tr>
+                {% endfor %}    
+              {% endif %}
+            </tbody>
+          </table>
+      </div>
     </div>
   </div>
 </div>

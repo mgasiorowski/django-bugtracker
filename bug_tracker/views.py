@@ -44,3 +44,20 @@ def project_list(request):
         'project_list': project_list,
      })
     return HttpResponse(template.render(context))
+
+
+def bugs_view(request, id):
+    bugs_view = Bug.objects.filter(id=id)
+    template = loader.get_template('bugs/bugs_view.html')
+    context = RequestContext(request, {
+        'bugs_view': bugs_view,
+        })
+    return HttpResponse(template.render(context))
+
+def bugs_edit(request):
+    bugs_edit = Bug.objects.all()
+    template = loader.get_template('bugs/bugs_edit.html')
+    context = RequestContext(request, {
+        'bugs_edit': bugs_edit,
+        })
+    return HttpResponse(template.render(context))
