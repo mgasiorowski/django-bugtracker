@@ -1,4 +1,6 @@
 {% extends 'bugs/base.html' %}
+
+{% block title %}Project list{% endblock %}
 {% block content %}
 
   <div class="container">
@@ -22,15 +24,14 @@
               {% for project in project_list %}
                 <tr>
                   <th scope="row">
-                    {{ forloop.counter }} {# starting index 1 #}            
+                  {{ forloop.counter }} {# starting index 1 #}
                   </th>
                   <td><a href="{{ project.get_absolute_url }}">{{ project.name }}</a></td>
                   <td>{{ project.description }}</td>
                   <td>{{ project.owner.username }}</td>
                   <td></td>
-
                 </tr>
-              {% endfor %}    
+              {% endfor %}
             {% endif %}
           </tbody>
         </table>
@@ -38,4 +39,3 @@
     </div>
 </div>
 {% endblock %}
-

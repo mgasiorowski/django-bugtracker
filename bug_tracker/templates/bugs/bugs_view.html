@@ -1,4 +1,7 @@
 {% extends 'bugs/base.html' %}
+
+{% block title %}Bugs view{% endblock %}
+
 {% block content %}
 <div class="container">
   {% if user != None and user.is_authenticated %}
@@ -28,6 +31,7 @@
           <a href="{% url 'add_comment' pk=object.id %}" class="btn btn-primary btn-sm" role="button">Add comment</a>
         </div>
       {% endif %}
+    <br>
     <div class="panel panel-default">
       <div class="panel-heading">
         Komentarze
