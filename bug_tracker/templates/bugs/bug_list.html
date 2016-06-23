@@ -2,16 +2,14 @@
 {% block content %}
 
   <div class="container">
-    {% if user != None and user.is_authenticated and can_add_bug%}
       <div align="right">
+      {% if user != None and user.is_authenticated and can_add_bug%}
         <a href="{% url 'new_bug' project_key=project.shortname %}" class="btn btn-primary btn-sm" role="button">Add New Bug</a>
-      </div>
-    {% endif %}
-    {% if user != None and user.is_authenticated and can_update_project %}
-      <div align="right">
+      {% endif %} 
+      {% if user != None and user.is_authenticated and can_update_project %}
         <a href="{% url 'project_update' project_key=project.shortname %}" class="btn btn-primary btn-sm" role="button">Assign users</a>
+      {% endif %}
       </div>
-    {% endif %}
     <br>
 
     <div class="panel panel-default">

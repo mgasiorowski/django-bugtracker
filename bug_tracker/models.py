@@ -13,7 +13,7 @@ class Project(models.Model):
     owner = models.ForeignKey(User)
     assigned_programmers = models.ManyToManyField(User, related_name='assigned_programmers', blank=True)
     assigned_testers = models.ManyToManyField(User, related_name='assigned_testers', blank=True)
-    
+
     def validate_name_shortname(self):
         if self.name == '':
             raise Exception('name can not be an empty string.')
@@ -81,3 +81,9 @@ class Bug(models.Model):
 
     def edit_url(self):
         return '/edittask/%s/' % (self.id)
+
+
+class Comment(models.Model):
+    text = models.TextField()
+    bug = models.ForeignKey(Bug)
+    owner = models.ForeignKey(User)

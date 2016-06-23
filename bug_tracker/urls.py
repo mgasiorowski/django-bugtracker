@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-from views import BugList, ProjectList, BugsView, BugCreate, BugEdit, ProjectUpdate, close_bug
+from views import BugList, ProjectList, BugsView, BugCreate, BugEdit, ProjectUpdate, close_bug, AddComment
 
 urlpatterns = [
     url(r'^$', ProjectList.as_view(), name='project_list'),
@@ -12,4 +12,5 @@ urlpatterns = [
     url(r'^editask/(?P<pk>\d+)/$', BugEdit.as_view(), name='bugs_edit'),
     url(r'^project_update/(?P<project_key>.*?)/$', ProjectUpdate.as_view(), name='project_update'),
     url(r'^closetask/(?P<pk>\d+)/$', close_bug, name='close_bug'),
+    url(r'^addcomment/(?P<pk>\d+)/$', AddComment.as_view(), name='add_comment'),
 ]

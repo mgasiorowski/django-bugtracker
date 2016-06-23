@@ -23,5 +23,21 @@
         <div>Description: {{ object.description }}</div>
       </div>
     </div>
+      {% if user != None and user.is_authenticated %}
+        <div align="right">
+          <a href="{% url 'add_comment' pk=object.id %}" class="btn btn-primary btn-sm" role="button">Add comment</a>
+        </div>
+      {% endif %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Komentarze
+      </div>
+      <div class="panel-body">
+      {% for comment in object.comment_set.all %}
+        <div>User: {{ comment.owner }}</div>  
+        <div>{{ comment.text }}</div>
+        <br>
+      {% endfor %}
+    </div>
 </div>
 {% endblock %}
