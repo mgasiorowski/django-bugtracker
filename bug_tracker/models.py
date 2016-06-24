@@ -33,8 +33,6 @@ class Project(models.Model):
     def get_absolute_url(self):
         return '/project/%s/' % self.shortname
 
-    def settings_url(self):
-        return '/project/%s/settings/' % self.shortname
 
 
 class Bug(models.Model):

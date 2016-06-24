@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bug_tracker',
     'widget_tweaks',
-    'debug_toolbar',
+#    'debug_toolbar',
 ]
 
 # Additional locations of static files
