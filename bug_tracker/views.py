@@ -89,13 +89,13 @@ class BugsView(DetailView):
     template_name = 'bugs/bugs_view.html'
 
     def get_queryset(self):
-        self.project = Project.objects.get(pk=self.kwargs['pk'])
-        return Bug.objects.filter(project=self.project)
+        self.bug = Bug.objects.get(pk=self.kwargs['pk'])
+        return Bug.objects.filter(project=self.bug.project)
 
     def get_context_data(self, **kwargs):
         context = super(BugsView, self).get_context_data(**kwargs)
-        context['project'] = self.project
-        context['can_add_comment'] = _can_add_comment(user=self.request.user, project=self.project)
+        context['project'] = self.bug.project
+        context['can_add_comment'] = _can_add_comment(user=self.request.user, project=self.bug.project)
         return context
 
 
